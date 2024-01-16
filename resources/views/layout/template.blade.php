@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -27,7 +30,7 @@
             min-height: 100vh; 
         }
         .heading{
-            font-size: 40px;
+            font-size: 48px;
         }
         .text-shadow{
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -47,6 +50,12 @@
             position: relative;
             margin-top: -150px;
             width: 400px;
+        }
+
+        .exceed-image-3 {
+            position: relative;
+            margin-top: -625px;
+            width: 450px;
         }
 
         .ontop-image {
@@ -93,7 +102,7 @@
 </head>
 <body>
     <div class = "w-100 h-100 bg-image px-5">
-        <nav class="navbar p-2">
+        <nav class="navbar p-2" data-aos="fade-up" data-aos-duration="2000">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34">
@@ -105,8 +114,8 @@
             @yield('content')
         </div>
     </div>
-
-    
-    
+    <script>
+        AOS.init();
+    </script>    
 </body>
 </html>
