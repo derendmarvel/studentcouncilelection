@@ -26,8 +26,31 @@
         .heading{
             font-size: 64px;
         }
+        .text-shadow{
+            text-shadow: 2px 2px #000000;
+        }
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
 
+        .exceed-image {
+            position: relative;
+            margin-top: -150px;
+        }
 
+        .gradient {
+            background: linear-gradient(to bottom, #FFFFFF, #F98700);
+        }
+
+        .orange-div {
+            background-color: #FF7A00;
+            color: white;
+        }
+
+        .orange-text {
+            color: #FF7A00;
+        }
         
     </style>
 </head>
@@ -35,9 +58,9 @@
     <div class = "w-100 h-100 bg-image px-5">
         <nav class="navbar pt-4 pb-2">
             <div class="container-fluid">
-                <a class="navbar-brand " href="#">
-                    <img src="/images/LOGO SC.png" alt="Logo" width="40" height="50">
-                    <img src="/images/LOGO UC.png" alt="Logo" width="50" height="50">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34">
+                    <img src="/images/LOGO UC.png" alt="Logo" width="34" height="34">
                 </a>
             </div>
         </nav>
