@@ -3,31 +3,43 @@
 @section('title', 'Student Council Election')
 
 @section('content')
-    <div class = "row">
-        <h1 class = "heading fw-bold text-white mb-5"> VOTE YOUR PRESIDENT </h1>
-        <div class = "col-6 ps-5"> 
-            <div class="card rounded-5 ms-5 w-75">
-                <div class = "gradient rounded-5 m-4">
-                    <img src="/images/Duo 1.png" class="exceed-image w-100" alt="Calon 1">
+    <div class = "row padding-main">
+        <h1 class = "heading fw-bold text-white no-gap"> VOTE YOUR PRESIDENT & VICE PRESIDENT </h1>
+        <h5 class = "fw-medium text-white mb-5"> for Student Council 2024/2025 </h5>
+        
+            <div class = "col-5 center-div mt-3"> 
+            <a href = "/main2" class = "link-underline link-underline-opacity-0"> 
+                <div class="card custom-card" style="width:350px">
+                    <div class = "gradient rounded-5 m-3">
+                        <img src="/images/Candidates 1 Resize.png" class="exceed-image" alt="Calon 1">
+                    </div>
+                    <div class = "px-3 pb-4">
+                        <h5 class="fw-bold orange-text my-0"> Ida Bagus Radhita </h5>
+                        <p class = "fw-medium text-black my-1"> & Nathan Darell </p> 
+                        <a href="#" class="btn orange-div w-50 rounded-5 fw-bold mt-1"> VOTE NOW </a>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="fw-bold orange-text"> IDA BAGUS RADHITA</h5>
-                    <p class="card-text fw-semibold"> & Nathan Darrell</p>
-                    <a href="#" class="btn orange-div w-50 rounded-5"> VOTE NOW </a>
-                </div>
+            </a>
             </div>
-        </div>
-        <div class = "col-6 pe-5"> 
-            <div class="card rounded-5 me-5 w-75">
-                <div class = "gradient rounded-5 m-4">
-                    <img src="/images/Duo 2.png" class="exceed-image w-100" alt="Calon 1">
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title fw-bold"> Michael David Sin </h5>
-                    <p class="card-text fw-semibold"> & Richie Reuben </p>
-                    <a href="#" class="btn orange-div w-100 rounded-5"> VOTE NOW </a>
-                </div>
+
+            <div class = "col-2 center-div mx-0"> 
+                <h1 class = "heading fw-bold text-white"> OR </h1>
             </div>
-        </div>
+        
+            <div class = "col-5 center-div mt-3"> 
+            <a href = "/details" class = "link-underline link-underline-opacity-0"> 
+                <div class="card custom-card" style="width:350px">
+                    <div class = "gradient rounded-5 m-3">
+                        <img src="/images/Candidates 2 Resize.png" class="exceed-image" alt="Calon 1">
+                    </div>
+                    <div class = "px-3 pb-4">
+                        <h5 class="fw-bold orange-text my-0"> Michael David Sin </h5>
+                        <p class = "fw-normal text-black my-1"> & Nathan Darell </p> 
+                        <a href="#" class="btn orange-div w-50 rounded-5 fw-bold mt-1"> VOTE NOW </a>
+                    </div>
+                </div>
+            </a>
+            </div>
+       
     </div>
 @endsection

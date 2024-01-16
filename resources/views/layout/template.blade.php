@@ -14,6 +14,8 @@
         body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
+            height: 100%;
+            margin: 0;
         }
         .bg-image {
             background: url('/images/Background.jpg');
@@ -22,12 +24,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-height: 100vh; 
         }
         .heading{
-            font-size: 64px;
+            font-size: 40px;
         }
         .text-shadow{
-            text-shadow: 2px 2px #000000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .image-container {
             position: relative;
@@ -37,6 +40,18 @@
         .exceed-image {
             position: relative;
             margin-top: -150px;
+            width: 325px;
+        }
+
+        .exceed-image-2 {
+            position: relative;
+            margin-top: -150px;
+            width: 400px;
+        }
+
+        .ontop-image {
+            position: relative;
+            margin-top: -120px;
         }
 
         .gradient {
@@ -51,12 +66,34 @@
         .orange-text {
             color: #FF7A00;
         }
+
+        .center-div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-card {
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+
+        .padding-main{
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .no-gap{
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
         
     </style>
 </head>
 <body>
     <div class = "w-100 h-100 bg-image px-5">
-        <nav class="navbar pt-4 pb-2">
+        <nav class="navbar p-2">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34">

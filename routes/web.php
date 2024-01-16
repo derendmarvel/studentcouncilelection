@@ -17,4 +17,12 @@ Route::get('/', function () {
     return view('main');
 });
 
+Route::get('/main2', function () {
+    return view('main2');
+});
+
+Route::get('/details', function () {
+    return view ('details');
+});
+
 //Route::get('/', ['main']);
