@@ -26,3 +26,7 @@ Route::get('/details', function () {
 });
 
 //Route::get('/', ['main']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -22,7 +22,7 @@
             </div>
 
             <div class = "col-2 center-div mx-0" data-aos="fade-up" data-aos-duration="2500" data-aos-delay="500"> 
-                <h1 class = "heading fw-bold text-white"> VS </h1>
+                <h1 class = "heading fw-bold text-white"> OR </h1>
             </div>
         
             <div class = "col-5 center-div mt-3" data-aos="fade-left" data-aos-duration="2500" data-aos-delay="1000"> 
