@@ -25,6 +25,10 @@ Route::get('/details', function () {
     return view ('details');
 });
 
+Route::get('/finish', function () {
+    return view ('finish');
+});
+
 //Route::get('/', ['main']);
 
 Auth::routes();
