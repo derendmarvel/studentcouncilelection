@@ -117,6 +117,70 @@
             margin-top: 0px;
             margin-bottom: 0px;
         }
+
+        .percentage-1{
+            position: relative;
+            margin-left: -100px;
+            z-index: 0;
+        }
+
+        .p-container{
+            height: 95px;
+            width: 200px;
+            margin-left: -80px;
+            margin-top: 80px;
+            background-color: transparent;
+            position: relative;
+            z-index: 0;
+        }
+
+        .p-container-2{
+            justify-content: flex-end;
+            height: 95px;
+            width: 200px;
+            margin-left: 50px;
+            margin-top: 30px;
+            background-color: transparent;
+            position: relative;
+            z-index: 0;
+        }
+
+        .p-container .p-bar{
+            position: absolute;
+            height: 100%;
+            width: 0;
+            background-color: #00CA45;
+            border-radius: 14px;
+            animation: progress-animation 2s forwards 2s;
+        }
+
+        .p-container-2 .p-bar-2{
+            position: absolute;
+            height: 100%;
+            width: 0;
+            background-color: #FF0000;
+            border-radius: 14px;
+            animation: progress-animation 2s forwards 2s;
+        }
+
+        .p-text{
+            opacity: 0;
+            animation: text-animation 3s forwards 2s;
+        }
+
+        @keyframes progress-animation {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes text-animation {
+            0% { opacity: 0%; }
+            100% { opacity: 100%; }
+        }
+
+        .ontop{
+            z-index: 10;
+        }
         
     </style>
 </head>
