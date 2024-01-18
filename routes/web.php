@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', [CandidateController::class, 'index']);
+
+Route::get('/details/{id}', [CandidateController::class, 'show']);
 
 Route::get('/main2', function () {
     return view('main2');
-});
-
-Route::get('/details', function () {
-    return view ('details');
 });
 
 Route::get('/finish', function () {

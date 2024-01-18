@@ -12,7 +12,10 @@ class CandidateController extends Controller
      */
     public function index()
     {
-        //
+        return view('main', [
+           'candidate_1' => Candidate::find(1),
+           'candidate_2' => Candidate::find(2)
+        ]);
     }
 
     /**
@@ -34,9 +37,13 @@ class CandidateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Candidate $candidate)
+    public function show($id)
     {
-        //
+        $candidate = Candidate::find($id);   
+
+        return view('details', [
+            'candidate' => $candidate
+         ]);
     }
 
     /**

@@ -10,7 +10,7 @@ class Candidate extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['names', 'description', 'vision', 'mission', 'number_of_votes'];
+    protected $fillable = ['names', 'description', 'vision_mission', 'number_of_votes', 'photo'];
 
     public function users(): HasMany{
         return $this->hasMany(User::class);

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('names');
             $table->text('description');
-            $table->text('vision');
-            $table->text('mission');
+            $table->text('vision_mission');
             $table->integer('number_of_votes');
+            $table->string('photo');
         });
     }
 

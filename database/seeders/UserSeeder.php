@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
             'email' => 'bma@ciputra.ac.id',
             'email_verified_at' => now(),
             'password'=>bcrypt('BMACiputra2024'),
-            'role_id'=> 1,
+            'role'=> 1,
+            'candidate_id' => null,
             'remember_token' => Str::random(10),
         ]);
     }
