@@ -49,8 +49,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 
+            function ($attribute, $value, $fail) {
+                // Check if the email ends with the specified domains
+                if (!str_ends_with($value, '@student.ciputra.ac.id') && !str_ends_with($value, '@ciputra.ac.id')) {
+                    $fail("The email must end with @student.ciputra.ac.id or @ciputra.ac.id.");
+                }
+            }
+        ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,7 +70,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
