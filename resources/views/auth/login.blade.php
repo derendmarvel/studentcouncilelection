@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('content')
-    <div class="card w-100 h-100 px-5 py-3 rounded-4">
+    <div class="card w-100 h-100 px-5 py-3 rounded-4" data-aos="fade-up" data-aos-duration="2000">
         <div class="card-body">
             <h1 class = "heading-2 fw-bold"> LOGIN </h1>
                 <form method="POST" action="{{ route('login') }}">

@@ -17,7 +17,7 @@ class CandidateSeeder extends Seeder
             'names' => 'Ida Bagus Radhita & Nathan',
             'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam eaque dolores est quia libero inventore autem veniam? Tempora nam odit eos eveniet aliquam laborum blanditiis nostrum minima, labore placeat.',
             'vision_mission' => 'To make UC great again',
-            'number_of_votes' => 0,
+            'number_of_votes' => 902,
             'photo' => '/images/Candidates 1.png'
         ]);   
 
@@ -25,7 +25,7 @@ class CandidateSeeder extends Seeder
             'names' => 'Michael David Sin & Richie',
             'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam eaque dolores est quia libero inventore autem veniam? Tempora nam odit eos eveniet aliquam laborum blanditiis nostrum minima, labore placeat.',
             'vision_mission' => 'To make UC great again',
-            'number_of_votes' => 0,
+            'number_of_votes' => 1049,
             'photo' => '/images/Candidates 2.png'
         ]);   
     }

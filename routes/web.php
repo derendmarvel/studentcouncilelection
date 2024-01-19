@@ -18,6 +18,8 @@ Route::get('/', [CandidateController::class, 'index']);
 
 Route::get('/details/{id}', [CandidateController::class, 'show']);
 
+Route::get('/stats', [CandidateController::class, 'stats']);
+
 Route::get('/main2', function () {
     return view('main2');
 });
@@ -25,12 +27,6 @@ Route::get('/main2', function () {
 Route::get('/finish', function () {
     return view ('finish');
 });
-
-Route::get('/stats', function () {
-    return view ('stats');
-});
-
-//Route::get('/', ['main']);
 
 Auth::routes();
 

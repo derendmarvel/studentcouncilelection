@@ -149,7 +149,6 @@
             position: absolute;
             height: 100%;
             width: 0;
-            background-color: #00CA45;
             border-radius: 14px;
             animation: progress-animation 2s forwards 2s;
         }
@@ -158,9 +157,16 @@
             position: absolute;
             height: 100%;
             width: 0;
-            background-color: #FF0000;
             border-radius: 14px;
             animation: progress-animation 2s forwards 2s;
+        }
+
+        .green-bar{
+            background-color: #00CA45;
+        }
+
+        .red-bar{
+            background-color: #FF0000;
         }
 
         .p-text{
@@ -181,16 +187,30 @@
         .ontop{
             z-index: 10;
         }
+
+        .btn-success{
+            background-color: #00CA45;
+            border: solid #00CA45;
+            color: white;
+        }
+
+        .btn-danger{
+            background-color: #FF7A00;
+            border: solid #FF7A00;
+            color: white;
+        }
         
     </style>
 </head>
 <body>
-    <div class = "w-100 h-100 bg-image px-5">
+    <div class = "w-100 bg-image px-5">
         <nav class="navbar p-2" data-aos="fade-up" data-aos-duration="2000">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34">
                     <img src="/images/LOGO UC.png" alt="Logo" width="34" height="34">
+                    <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34">
+                    <img src="/images/LOGO BUKU.png" alt="Logo" width="34" height="34">
+                    <img src="/images/LOGO SRB.png" alt="Logo" width="50" height="26">
                 </a>
             </div>
         </nav>
@@ -198,6 +218,13 @@
             @yield('content')
         </div>
     </div>
+
+    <!-- <footer class = "col-12">
+        <div class="row w-100 bg-white align-items-center pt-3 orange-text position-fixed bottom-0">
+            <p class = "text-center fs-6"> Copyright © Universitas Ciputra Student Council </p>
+        </div>
+    </footer> -->
+
     <script>
         AOS.init();
     </script>    

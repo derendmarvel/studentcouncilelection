@@ -46,6 +46,21 @@ class CandidateController extends Controller
          ]);
     }
 
+    public function stats(){
+        $candidate_1 = Candidate::find(1);
+        $candidate_2 = Candidate::find(2);
+
+        $percentage_1 = round(($candidate_1->number_of_votes / ($candidate_1->number_of_votes + $candidate_2->number_of_votes)) * 100, 0);
+        $percentage_2 = round(($candidate_2->number_of_votes / ($candidate_1->number_of_votes + $candidate_2->number_of_votes)) * 100, 0);
+
+        return view('stats', [
+            'candidate_1' => $candidate_1,
+            'candidate_2' => $candidate_2,
+            'percentage_1' => $percentage_1,
+            'percentage_2' => $percentage_2,
+         ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
