@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CandidateController extends Controller
 {
@@ -72,9 +73,17 @@ class CandidateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Candidate $candidate)
+    public function update(Request $request, $id)
     {
-        //
+        $candidate = Candidate::find($id);
+
+        $candidate->number_of_votes += 1;
+        Auth::user()->candidate_id = $candidate->id;
+
+        Auth::user()->save();
+        $candidate->save();
+
+        return view('/finish');
     }
 
     /**

@@ -5,7 +5,10 @@
 @section('content')
     <div class = "row start-div px-2">
         <div class = "position-fixed top-0 start-0 p-4" style = "width:100px" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
-            <a href="login"><img src="/images/Back Button.png" alt="Back Icon" style = "width:60px"> </a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> <img src="/images/Back Button.png" alt="Back Icon" style = "width:60px"> </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+            </form>
         </div>
         <div class = "col-5 ontop" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">
             <img src="/images/Candidate Background.png" alt="Background" class = "w-100" height = "570px">

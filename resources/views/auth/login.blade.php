@@ -1,5 +1,7 @@
 @extends('layout.template')
 
+@section('title', "Login")
+
 @section('content')
     <div class="card w-100 h-100 px-5 py-3 rounded-4" data-aos="fade-up" data-aos-duration="2000">
         <div class="card-body">

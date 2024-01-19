@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -32,8 +34,28 @@ class LoginController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    protected function authenticated(Request $request, $user)
+    {
+        $existingUser = User::where('email', $user->email)->first();
+
+        if (!$existingUser) {
+            $newUser = new User([
+                'email' => $user->email,
+                'password' => bcrypt($user->password)
+            ]);
+
+            $newUser->save();
+        }
+
+        if ($user->isAdmin()) {
+            return redirect()->route('stats');
+        }
+
+        return redirect()->intended($this->redirectPath());
     }
 }

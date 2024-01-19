@@ -14,20 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CandidateController::class, 'index']);
+Route::get('/', [CandidateController::class, 'index'])->middleware('voter');
+Route::get('/details/{id}', [CandidateController::class, 'show'])->middleware('voter');
+Route::put('/details/update/{id}', [CandidateController::class, 'update'])->middleware('voter')->name('candidate.vote');
+Route::get('/stats', [CandidateController::class, 'stats'])->middleware('admin')->name('stats');
 
-Route::get('/details/{id}', [CandidateController::class, 'show']);
-
-Route::get('/stats', [CandidateController::class, 'stats']);
-
-Route::get('/main2', function () {
-    return view('main2');
-});
+// Route::get('/main2', function () {
+//     return view('main2');
+// });
 
 Route::get('/finish', function () {
     return view ('finish');
-});
+})->middleware('voter');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

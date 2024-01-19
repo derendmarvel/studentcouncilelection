@@ -25,7 +25,11 @@
                         <p class="card-text"> {{ $candidate->vision_mission }}</p>
                 </div>
             </div>
-                <a href="/finish" class="btn btn-success shadow w-100 py-2 rounded-3 fw-bold"> VOTE </a>
+            <form action="{{ route('candidate.vote', $candidate->id ) }} " method="POST" enctype="multipart/form-data">
+                @method('put')
+                @csrf
+                <button type="submit" class="btn btn-success shadow w-100 py-2 rounded-3 fw-bold"> VOTE </button>
+                </form>
             </div>
     </div>
 
