@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/signup', function () {
+    return view ('signup');
+})->name('signup');
 
-Route::get('/', [CandidateController::class, 'index'])->middleware('voter');
+Route::post('/registration', [UserController::class, 'store'])->name('registration');
+
+Route::get('/', [CandidateController::class, 'index'])->middleware('voter')->name('main');
 Route::get('/details/{id}', [CandidateController::class, 'show'])->middleware('voter');
 Route::put('/details/update/{id}', [CandidateController::class, 'update'])->middleware('voter')->name('candidate.vote');
 Route::get('/stats', [CandidateController::class, 'stats'])->middleware('admin')->name('stats');
+
 
 // Route::get('/main2', function () {
 //     return view('main2');

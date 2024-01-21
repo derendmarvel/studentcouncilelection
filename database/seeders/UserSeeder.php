@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         User::create([
             'email' => 'bma@ciputra.ac.id',
             'email_verified_at' => now(),
-            'password'=>bcrypt('BMACiputra2024'),
+            'nim'=> '001',
             'role'=> 1,
             'candidate_id' => null,
             'remember_token' => Str::random(10),
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
         User::create([
             'email' => 'dmarvelhanson@student.ciputra.ac.id',
             'email_verified_at' => now(),
-            'password'=>bcrypt('derend'),
+            'nim'=> '0706012210030',
             'role'=> 2,
             'candidate_id' => null,
             'remember_token' => Str::random(10),

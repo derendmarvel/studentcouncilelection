@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('nim');
             $table->integer('role');
             $table->unsignedBigInteger('candidate_id')->nullable(true);
             $table->foreign('candidate_id')->nullable(true)
