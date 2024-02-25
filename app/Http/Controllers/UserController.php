@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'email' => 'required|email',
-            'nim' => 'required|size:13',
+            'nim' => 'required',
         ]);
 
         if($validatedData['email'] != 'bma@ciputra.ac.id'){

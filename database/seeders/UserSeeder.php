@@ -22,14 +22,5 @@ class UserSeeder extends Seeder
             'candidate_id' => null,
             'remember_token' => Str::random(10),
         ]);
-
-        User::create([
-            'email' => 'dmarvelhanson@student.ciputra.ac.id',
-            'email_verified_at' => now(),
-            'nim'=> '0706012210030',
-            'role'=> 2,
-            'candidate_id' => null,
-            'remember_token' => Str::random(10),
-        ]);
     }
 }
