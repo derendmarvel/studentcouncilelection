@@ -51,8 +51,17 @@ class CandidateController extends Controller
         $candidate_1 = Candidate::find(1);
         $candidate_2 = Candidate::find(2);
 
-        $percentage_1 = round(($candidate_1->number_of_votes / ($candidate_1->number_of_votes + $candidate_2->number_of_votes)) * 100, 0);
-        $percentage_2 = round(($candidate_2->number_of_votes / ($candidate_1->number_of_votes + $candidate_2->number_of_votes)) * 100, 0);
+        if ($candidate_1->number_of_votes == 0){
+            $percentage_1 = 0;
+        } else {
+            $percentage_1 = round(($candidate_1->number_of_votes / ($candidate_1->number_of_votes + $candidate_2->number_of_votes)) * 100, 0);
+        }
+
+        if ($candidate_2-> number_of_votes == 0){
+            $percentage_2 = 0;
+        } else {
+            $percentage_2 = round(($candidate_2->number_of_votes / ($candidate_1->number_of_votes + $candidate_2->number_of_votes)) * 100, 0);
+        }
 
         return view('stats', [
             'candidate_1' => $candidate_1,
