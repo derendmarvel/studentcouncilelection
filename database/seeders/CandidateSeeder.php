@@ -15,16 +15,12 @@ class CandidateSeeder extends Seeder
     {
         Candidate::create([
             'names' => 'Ida Bagus Radhita & Nathan',
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam eaque dolores est quia libero inventore autem veniam? Tempora nam odit eos eveniet aliquam laborum blanditiis nostrum minima, labore placeat.',
-            'vision_mission' => 'To make UC great again',
             'number_of_votes' => 0,
             'photo' => '/images/Candidates 1.png'
         ]);   
 
         Candidate::create([
             'names' => 'Michael David Sin & Richie',
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quam eaque dolores est quia libero inventore autem veniam? Tempora nam odit eos eveniet aliquam laborum blanditiis nostrum minima, labore placeat.',
-            'vision_mission' => 'To make UC great again',
             'number_of_votes' => 0,
             'photo' => '/images/Candidates 2.png'
         ]);   

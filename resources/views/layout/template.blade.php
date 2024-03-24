@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> @yield('title')  </title>
-    <link rel="icon" type="image/x-icon" href="/images/LOGO SC.png">
+    <link rel="icon" type="image/x-icon" href="/images/LOGO UC.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,7 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -205,13 +206,13 @@
 </head>
 <body>
     <div class = "w-100 bg-image px-5">
-        <nav class="navbar p-2" data-aos="fade-up" data-aos-duration="2000">
+        <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="2000">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/LOGO UC.png" alt="Logo" width="34" height="34">
-                    <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34">
-                    <img src="/images/LOGO BUKU.png" alt="Logo" width="34" height="34">
-                    <img src="/images/LOGO SRB.png" alt="Logo" width="50" height="26">
+                    <img src="/images/LOGO UC.png" alt="Logo" width="60" height="60">
+                    <!-- <img src="/images/LOGO SC.png" alt="Logo" width="26" height="34"> -->
+                    <img src="/images/LOGO SRB.png" alt="Logo" width="80" height="42">
+                    <img src="/images/LOGO BUKU.png" alt="Logo" width="60" height="60">
                 </a>
                 
             </div>
@@ -230,6 +231,26 @@
 
     <script>
         AOS.init();
-    </script>    
+        
+    </script>  
+    
+    <script>
+        function confirmation(form){
+            swal({
+                title: "Are you sure?",
+                text: "Click OK to confirm your choice.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((isOkay) => {
+                if(isOkay) {
+                    form.submit();
+                } 
+            });
+            return false;
+        }
+    </script>
+
 </body>
 </html>
