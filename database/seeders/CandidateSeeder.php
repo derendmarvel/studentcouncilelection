@@ -16,13 +16,13 @@ class CandidateSeeder extends Seeder
         Candidate::create([
             'names' => 'Ida Bagus Radhita & Nathan',
             'number_of_votes' => 0,
-            'photo' => '/images/Candidates 1.png'
+            'photo' => '/images/Candidates 1 Compressed.png'
         ]);   
 
         Candidate::create([
             'names' => 'Michael David Sin & Richie',
             'number_of_votes' => 0,
-            'photo' => '/images/Candidates 2.png'
+            'photo' => '/images/Candidates 2 Compressed.png'
         ]);   
     }
 }
