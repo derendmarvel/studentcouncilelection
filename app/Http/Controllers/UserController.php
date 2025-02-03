@@ -17,7 +17,7 @@ class UserController extends Controller
             'nim' => 'required',
         ]);
 
-        if($validatedData['email'] != 'bma@ciputra.ac.id'){
+        if($validatedData['email'] != 'sa@ciputra.ac.id'){
             if (!str_ends_with($validatedData['email'], '@student.ciputra.ac.id')) {
                 return redirect()->back()->withErrors(['email' => 'Invalid email format. Please use an email ending with @student.ciputra.ac.id']);
             }
@@ -51,7 +51,7 @@ class UserController extends Controller
             }
         } else {
             if ($validatedData['nim'] == '001') {
-                $user = User::where('email', 'bma@ciputra.ac.id')->first();
+                $user = User::where('email', 'sa@ciputra.ac.id')->first();
                 Auth::login($user);
                 return redirect()->route('stats');
             }
