@@ -3,7 +3,21 @@
 @section('title', "Sign In")
 
 @section('content')
-    <div class="card w-100 h-100 px-5 py-3 rounded-4" data-aos="fade-up" data-aos-duration="2000">
+    <div class = "col w-100 h-100 justify-content-center align-middle">
+        <div class = "row" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+            <h1 class = "heading-3 fw-bold text-white"> SIGN-IN TO VOTE </h1>
+        </div>
+        <a href = " {{ route('auth.google') }}" class = "col d-flex w-50 bg-white rounded-4 py-2 mx-auto link-underline link-underline-opacity-0 justify-content-center" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
+            <div class = "row">
+                <img src = "/images/Google-Icon.png" class = "google-icon mx-2">
+            </div>
+            <div class = "row">
+                <p class = "fs-5 fw-bold orange-text py-0 lh-0 my-0"> SIGN-IN WITH GOOGLE </p>
+            </div>
+        </a>
+    </div>
+    <!-- Old Design -->
+    <!-- <div class="card w-100 h-100 px-5 py-3 rounded-4" data-aos="fade-up" data-aos-duration="2000">   
         <div class="card-body">
             <h1 class = "heading-2 fw-bold"> SIGN IN </h1>
                 <form method="POST" action="/registration">
@@ -38,5 +52,5 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
 @endsection

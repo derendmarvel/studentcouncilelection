@@ -25,6 +25,15 @@ Route::get('/details/{id}', [CandidateController::class, 'show'])->middleware('v
 Route::put('/details/update/{id}', [CandidateController::class, 'update'])->middleware('voter')->name('candidate.vote');
 Route::get('/stats', [CandidateController::class, 'stats'])->middleware('admin')->name('stats');
 
+/**
+ * Google Login
+ */
+Route::controller(UserController::class)->group(function() {
+    Route::get('auth/google','googleLogin')->name('auth.google');
+Route::get('auth/google-callback', 'googleAuthentication')->name('auth.google-callback');
+});
+
+
 
 // Route::get('/main2', function () {
 //     return view('main2');

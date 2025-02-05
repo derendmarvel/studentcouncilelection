@@ -26,6 +26,7 @@
             margin: 0;
             padding: 0;
         }
+
         .bg-image {
             background: url('/images/Background.jpg');
             background-size: cover;
@@ -35,15 +36,28 @@
             justify-content: center;
             min-height: 100vh; 
         }
+
+        .google-icon {
+            width: 50px;
+            height: 26px;
+        }
+
         .heading{
             font-size: 48px;
         }
+
         .heading-2{
             font-size: 64px;
         }
+
+        .heading-3{
+            font-size: 80px;
+        }
+        
         .text-shadow{
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+
         .image-container {
             position: relative;
             overflow: hidden;
