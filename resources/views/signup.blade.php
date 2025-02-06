@@ -15,6 +15,14 @@
                 <p class = "fs-5 fw-bold orange-text py-0 lh-0 my-0"> SIGN-IN WITH GOOGLE </p>
             </div>
         </a>
+        <div class = "row my-3" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="900"> @error('email')
+            <div class = "col">
+                <div class = "fs-5 text-danger-emphasis" role="alert">
+                    <strong> {{ $message }} </strong>
+                </div>
+            </div>
+            @enderror
+        </div>
     </div>
     <!-- Old Design -->
     <!-- <div class="card w-100 h-100 px-5 py-3 rounded-4" data-aos="fade-up" data-aos-duration="2000">   

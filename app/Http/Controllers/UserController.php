@@ -86,26 +86,26 @@ class UserController extends Controller
                 $user = User::where('email', 'sa@ciputra.ac.id')->first();
                 Auth::login($user);
                 return redirect()->route('stats');
-            }
-
-            if (!str_ends_with($googleUser->email, '@student.ciputra.ac.id')) {
-                return redirect()->back()->withErrors(['email' => 'Invalid email format. Please use an email ending with @student.ciputra.ac.id']);
-            }
-
-            if ($user) {
-                return redirect()->back()->withErrors(['email' => 'Email has already been used to vote.']);
-            } else {
-                $userData = User::create([
-                    'name' => $googleUser->name,
-                    'email' => $googleUser->email,
-                    'password' => Hash::make('Password@1234'),
-                    'google_id' => $googleUser->id,
-                    'role' => 2,
-                ]);
-            
-                if ($userData) {
-                    Auth::login($userData);
-                    return redirect()->route('main');
+            }else{
+                if (!str_ends_with($googleUser->email, '@student.ciputra.ac.id')) {
+                    return redirect()->route('signup')->withErrors(['email' => 'Please use an email ending with @student.ciputra.ac.id']);
+                } else {
+                    if ($user) {
+                        return redirect()->route('signup')->withErrors(['email' => 'Email has already been used to vote.']);
+                    } else {
+                        $userData = User::create([
+                            'name' => $googleUser->name,
+                            'email' => $googleUser->email,
+                            'password' => Hash::make('Password@1234'),
+                            'google_id' => $googleUser->id,
+                            'role' => 2,
+                        ]);
+                    
+                        if ($userData) {
+                            Auth::login($userData);
+                            return redirect()->route('main');
+                        }
+                    }
                 }
             }
         } catch (Exception $e) {
