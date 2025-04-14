@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $validatedData = $request->validate([
             'email' => 'required|email',
             'nim' => 'required',
@@ -60,6 +59,71 @@ class UserController extends Controller
             }
             return redirect()->back()->withErrors(['nim' => 'Incorrect NIM.']);
         }
+    }
+
+    public static function attendanceList(){
+        $voters = User::where('role', 2)->paginate(10);
+    
+        return view('attendanceList', [
+            'voters' => $voters,
+        ]);
+    }
+
+    public static function voterSearch(Request $request){
+        if($request->has('search')){
+            $voters = User::where('role', 2)
+                            ->where(function ($query) use ($request) {
+                                $query->where('nim', 'like', '%' . $request->search . '%')
+                                    ->orWhere('email', 'like', '%' . $request->search . '%');
+                            })
+                            ->paginate(10)->withQueryString();
+        } else {
+            $voters = User::where('role', 2)->paginate(10);
+        }
+    
+        return view('attendanceList', [
+            'voters' => $voters
+        ]);
+    }
+
+    public function check(Request $request){
+        $qrcode = $request->input('qr_code');
+
+        $split = explode('+', $qrcode);
+        $nim = $split[0];
+
+        $nim = preg_replace('/\D/', '', $nim);
+
+        $attendant = User::where('nim', $nim)->first();
+
+        if ($attendant){
+            $attendant->presence = 1;
+            $attendant->save();
+        }
+
+        return redirect()->route('attendanceList');
+    }
+
+    public function attendance($id){
+        $user = User::where('id', $id)->first();
+
+        if ($user){
+            $user->presence = 1;
+            $user->save();
+        }
+
+        return redirect()->route('attendanceList');
+    }
+
+    public function uncheck($id){
+        $user = User::where('id', $id)->first();
+
+        if ($user){
+            $user->presence = 0;
+            $user->save();
+        }
+
+        return redirect()->route('attendanceList');
     }
 
     /**

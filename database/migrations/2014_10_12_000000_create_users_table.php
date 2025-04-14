@@ -9,15 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
+    public function up(): void {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            // $table->string('nim');
-            $table->string('google_id')->nullable();
+            $table->string('nim');
+            // $table->string('google_id')->nullable();
+            $table->integer('presence')->nullable();
             $table->integer('role');
             $table->unsignedBigInteger('candidate_id')->nullable(true);
             $table->foreign('candidate_id')->nullable(true)
@@ -26,7 +26,6 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
-
         });
     }
 

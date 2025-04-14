@@ -16,6 +16,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
@@ -78,6 +80,12 @@
         .exceed-image-3 {
             position: relative;
             margin-top: -690px;
+            width: 500px;
+        }
+
+        .exceed-image-4 {
+            position: relative;
+            margin-top: -150px;
             width: 500px;
         }
 
@@ -154,7 +162,7 @@
             justify-content: flex-end;
             height: 95px;
             width: 200px;
-            margin-left: 50px;
+            margin-left: 80px;
             margin-top: 30px;
             background-color: transparent;
             position: relative;
@@ -166,15 +174,16 @@
             height: 100%;
             width: 0;
             border-radius: 14px;
-            animation: progress-animation 2s forwards 2s;
+            animation: progress-animation 1s forwards 1s;
         }
 
         .p-container-2 .p-bar-2{
             position: absolute;
             height: 100%;
             width: 0;
+            right: 0; 
             border-radius: 14px;
-            animation: progress-animation 2s forwards 2s;
+            animation: progress-animation 1s forwards 1s;
         }
 
         .green-bar{
@@ -185,9 +194,13 @@
             background-color: #FF0000;
         }
 
+        .orange-bar{
+            background-color:rgb(255, 140, 33);
+        }
+
         .p-text{
             opacity: 0;
-            animation: text-animation 3s forwards 2s;
+            animation: text-animation 1s forwards 1s;
         }
 
         @keyframes progress-animation {
@@ -215,12 +228,22 @@
             border: solid #FF7A00;
             color: white;
         }
+
+        .btn-size{
+            width: 20px;
+            height: 20px;
+        }
+
+        .pagination-wrapper .text-sm {
+            color: white !important;
+        }
+
         
     </style>
 </head>
 <body>
     <div class = "w-100 bg-image px-5">
-        <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="2000">
+        <nav class="navbar p-2 ps-4" data-aos="fade-up" data-aos-duration="1000">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="/images/LOGO UC.png" alt="Logo" width="60" height="60">

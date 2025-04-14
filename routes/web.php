@@ -25,6 +25,12 @@ Route::get('/details/{id}', [CandidateController::class, 'show'])->middleware('v
 Route::put('/details/update/{id}', [CandidateController::class, 'update'])->middleware('voter')->name('candidate.vote');
 Route::get('/stats', [CandidateController::class, 'stats'])->middleware('admin')->name('stats');
 
+Route::get('/attendanceList', [UserController::class, 'attendanceList'])->middleware('admin')->name('attendanceList');
+Route::get('/voterSearch', [UserController::class, 'voterSearch'])->middleware('admin')->name('voterSearch');
+Route::post('/attendanceCheck', [UserController::class, 'check'])->middleware('admin')->name('attendanceCheck');
+Route::get('/manualCheck/{id}', [UserController::class, 'attendance' ])->middleware('admin')->name('manualCheck');
+Route::get('/uncheck/{id}', [UserController::class, 'uncheck' ])->middleware('admin')->name('uncheck');
+
 /**
  * Google Login
  */
