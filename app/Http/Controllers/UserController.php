@@ -26,30 +26,33 @@ class UserController extends Controller
             $existingEmail = User::where('email', $validatedData['email'])->first();
             $existingNIM = User::where('nim', $validatedData['nim'])->first();
 
-            if(!$existingEmail){
-                if(!$existingNIM){
+            if(!$existingEmail && !$existingNIM){
+                return redirect()->back()->withErrors(['email' => 'Please confirm attendance at the front desk first.']);
+            } else if (!$existingEmail && $existingNIM){
+                return redirect()->back()->withErrors(['email' => 'Incorrect email.']);
+            } else if (!$existingNIM && $existingEmail){
+                return redirect()->back()->withErrors(['nim' => 'Incorrect nim.']);
+            } else {
+                $user = User::where('email', $validatedData['email'])->first();
+                if($user){
                     $import = new NimEmailImport();
                     $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
                     $data = Excel::toArray($import, $filePath)[0];
 
                     foreach ($data as $row) {
-                        if ($row['nis'] == $validatedData['nim'] && $row['official_email'] == $validatedData['email']) {
-                            $user = User::create([
-                                'email' => $validatedData['email'],
-                                'nim' => $validatedData['nim'],
-                                'role' => 2,
-                            ]);
-                                        
-                            Auth::login($user);
-                            return redirect()->route('main');
+                        if ($row['nis'] == $user->nim && $row['official_email'] == $user->email) {
+                            if($user->candidate_id != null){
+                                return redirect()->back()->withErrors(['email' => 'Email has already been used to vote.']);
+                            } else {
+                                Auth::login($user);
+                                return redirect()->route('main');
+                            }
                         }
                     }
-                    return redirect()->back()->withErrors(['email' => 'Incorrect NIM or email.']);
+                    return redirect()->back()->withErrors(['email' => 'Incorrect NIM or email.', 'nim']);                   
                 } else {
-                    return redirect()->back()->withErrors(['nim' => 'NIM has already been used to vote.']);
+                    return redirect()->back()->withErrors(['email' => 'Please confirm attendance at the front desk first.']);
                 }
-            } else {
-                return redirect()->back()->withErrors(['email' => 'Email has already been used to vote.']);
             }
         } else {
             if ($validatedData['nim'] == '001') {
@@ -91,14 +94,35 @@ class UserController extends Controller
 
         $split = explode('+', $qrcode);
         $nim = $split[0];
+        $email = $split[1];
 
         $nim = preg_replace('/\D/', '', $nim);
 
-        $attendant = User::where('nim', $nim)->first();
+        if (!str_ends_with($email, '@student.ciputra.ac.id')) {
+            return redirect()->back()->withErrors(['email' => 'Please use an email ending with @student.ciputra.ac.id']);
+        } else {
+            $existingEmail = User::where('email', $email)->first();
+            $existingNIM = User::where('nim', $nim)->first();
 
-        if ($attendant){
-            $attendant->presence = 1;
-            $attendant->save();
+            if(!$existingEmail && !$existingNIM){
+                $import = new NimEmailImport();
+                $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
+                $data = Excel::toArray($import, $filePath)[0];
+
+                foreach ($data as $row) {
+                    if ($row['nis'] == $nim && $row['official_email'] == $email) {
+                        User::create([
+                            'email' => $validatedData['email'],
+                            'nim' => $validatedData['nim'],
+                            'role' => 2,
+                            'presence' => 1,
+                        ]);
+                        return redirect()->route('attendanceList');
+                    }
+                }
+            } else {
+                return redirect()->back()->withErrors(['email' => 'Email has already been used to vote.']);
+            }
         }
 
         return redirect()->route('attendanceList');

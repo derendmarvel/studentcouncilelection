@@ -31,15 +31,12 @@
                                         <td class = "p-2">{{ $voter['nim'] }}</td>
                                         <td class = "p-2">{{ $voter['presence'] == 1 ? 'Yes' : 'No' }}</td>
                                         <td class="p-2">
-                                            @if ($voter['presence'] == 0)
-                                            <a href="/manualCheck/{{$voter->id}}" style="text-decoration: none; filter: grayscale(100%) brightness(2.5);">
+                                            <a href="/manualCheck/{{$voter->id}}" style="text-decoration: none; filter: brightness(2);">
                                                 <img src="/images/X.png" class="btn-size">
                                             </a>
-                                            @elseif($voter['presence'] == 1)
-                                            <a href="/uncheck/{{$voter->id}}" style="text-decoration: none; filter: grayscale(100%) brightness(10);">
+                                            <a href="/uncheck/{{$voter->id}}" style="text-decoration: none; filter: grayscale(100%) brightness(12);">
                                                 <img src="/images/X-1.png" class="btn-size">
                                             </a>
-                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
