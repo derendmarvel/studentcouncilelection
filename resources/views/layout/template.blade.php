@@ -86,7 +86,7 @@
         .exceed-image-4 {
             position: relative;
             margin-top: -150px;
-            width: 500px;
+            width: 485px;
         }
 
         .ontop-image {
@@ -159,10 +159,9 @@
         }
 
         .p-container-2{
-            justify-content: flex-end;
             height: 95px;
             width: 200px;
-            margin-left: 80px;
+            margin-left: 100px;
             margin-top: 30px;
             background-color: transparent;
             position: relative;

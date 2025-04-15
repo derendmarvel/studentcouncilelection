@@ -39,10 +39,10 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Admin',
-            'email' => 'sinte1@ciputra.ac.id',
+            'email' => 'dmarvelhanson@student.ciputra.ac.id',
             'email_verified_at' => now(),
-            'nim'=> '001',
-            'presence' => 0,
+            'nim'=> '0706012210030',
+            'presence' => 1,
             'role'=> 2,
             'candidate_id' => null,
             'remember_token' => Str::random(10),
@@ -139,50 +139,6 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'sinte10@ciputra.ac.id',
-            'email_verified_at' => now(),
-            'nim'=> '001',
-            'presence' => 0,
-            'role'=> 2,
-            'candidate_id' => null,
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Admin',
-            'email' => 'sinte11@ciputra.ac.id',
-            'email_verified_at' => now(),
-            'nim'=> '001',
-            'presence' => 0,
-            'role'=> 2,
-            'candidate_id' => null,
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Admin',
-            'email' => 'sinte12@ciputra.ac.id',
-            'email_verified_at' => now(),
-            'nim'=> '001',
-            'presence' => 0,
-            'role'=> 2,
-            'candidate_id' => null,
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Admin',
-            'email' => 'sinte13@ciputra.ac.id',
-            'email_verified_at' => now(),
-            'nim'=> '001',
-            'presence' => 0,
-            'role'=> 2,
-            'candidate_id' => null,
-            'remember_token' => Str::random(10),
-        ]);
-
-        User::create([
-            'name' => 'Admin',
-            'email' => 'sinte14@ciputra.ac.id',
             'email_verified_at' => now(),
             'nim'=> '001',
             'presence' => 0,
