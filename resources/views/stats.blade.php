@@ -13,7 +13,7 @@
         <a href="{{ route('attendanceList') }}" class="position-fixed top-0 end-0 p-2 m-3 btn btn-outline-light d-flex align-items-center text-start gap-2" 
             style="z-index: 1050; width: auto;"> Attendance List <i class="fas fa-arrow-right"></i> </a>
 
-        <div class = "col-5 ontop center-div" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500"> 
+        <div class = "col-5 ontop center-div d-flex justify-content-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500"> 
             <div class="rounded-5 ms-5" style="width:485px">
                 <div class = "gradient rounded-5 m-4">
                     <img src="{{ $candidate_1->photo }}" class="exceed-image-4" alt="Calon 1">

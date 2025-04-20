@@ -5,7 +5,7 @@
 @section('content')
     <div class = "row padding-main pb-4">
         <h1 class = "heading fw-bold text-white no-gap" data-aos="fade-up" data-aos-duration="2000"> VOTE YOUR PRESIDENT & VICE PRESIDENT </h1>
-        <h4 class = "fw-medium text-white mb-4" data-aos="fade-up" data-aos-duration="2000"> for Student Council 2024/2025 </h4>
+        <h4 class = "fw-medium text-white mb-4" data-aos="fade-up" data-aos-duration="2000"> for Student Council 2025/2026 </h4>
         
             <div class = "col-5 center-div mt-3" data-aos="fade-right" data-aos-duration="2500" data-aos-delay="500"> 
                 <div class="rounded-5 ms-5" style="width:450px">

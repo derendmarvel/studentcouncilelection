@@ -26,24 +26,26 @@ class UserController extends Controller
             $existingEmail = User::where('email', $validatedData['email'])->first();
             $existingNIM = User::where('nim', $validatedData['nim'])->first();
 
-            if(!$existingEmail && !$existingNIM){
+            if(!$existingNIM){
                 return redirect()->back()->withErrors(['email' => 'Please confirm attendance at the front desk first.']);
-            } else if (!$existingEmail && $existingNIM){
-                return redirect()->back()->withErrors(['email' => 'Incorrect email.']);
-            } else if (!$existingNIM && $existingEmail){
-                return redirect()->back()->withErrors(['nim' => 'Incorrect nim.']);
+            // } else if (!$existingEmail && $existingNIM){
+            //     return redirect()->back()->withErrors(['email' => 'Incorrect email.']);
+            // } else if (!$existingNIM && $existingEmail){
+            //     return redirect()->back()->withErrors(['nim' => 'Incorrect nim.']);
             } else {
-                $user = User::where('email', $validatedData['email'])->first();
+                $user = User::where('nim', $validatedData['nim'])->first();
                 if($user){
                     $import = new NimEmailImport();
                     $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
                     $data = Excel::toArray($import, $filePath)[0];
 
                     foreach ($data as $row) {
-                        if ($row['nis'] == $user->nim && $row['official_email'] == $user->email) {
+                        if ($row['nis'] == $user->nim && $row['official_email'] == $validatedData['email']) {
                             if($user->candidate_id != null){
                                 return redirect()->back()->withErrors(['email' => 'Email has already been used to vote.']);
                             } else {
+                                $user->email = $validatedData['email'];
+                                $user->save();
                                 Auth::login($user);
                                 return redirect()->route('main');
                             }
@@ -92,37 +94,36 @@ class UserController extends Controller
     public function check(Request $request){
         $qrcode = $request->input('qr_code');
 
+
         $split = explode('+', $qrcode);
         $nim = $split[0];
-        $email = $split[1];
+        $name = $split[1];
+        $name = preg_replace('/Shift/', '', $split[1]); // remove "Shift"
+        $name = preg_replace('/\s+/', ' ', $name); // replace multiple spaces with single space
+        $name = trim($name); // clean leading/trailing spaces
+
 
         $nim = preg_replace('/\D/', '', $nim);
 
-        if (!str_ends_with($email, '@student.ciputra.ac.id')) {
-            return redirect()->back()->withErrors(['email' => 'Please use an email ending with @student.ciputra.ac.id']);
-        } else {
-            $existingEmail = User::where('email', $email)->first();
-            $existingNIM = User::where('nim', $nim)->first();
+        $existingNIM = User::where('nim', $nim)->first();
 
-            if(!$existingEmail && !$existingNIM){
-                $import = new NimEmailImport();
-                $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
-                $data = Excel::toArray($import, $filePath)[0];
-
-                foreach ($data as $row) {
-                    if ($row['nis'] == $nim && $row['official_email'] == $email) {
-                        User::create([
-                            'email' => $validatedData['email'],
-                            'nim' => $validatedData['nim'],
-                            'role' => 2,
-                            'presence' => 1,
-                        ]);
-                        return redirect()->route('attendanceList');
-                    }
+        if(!$existingNIM){
+            $import = new NimEmailImport();
+            $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
+            $data = Excel::toArray($import, $filePath)[0];
+            foreach ($data as $row) {
+                if ($row['nis'] == $nim) {
+                    User::create([
+                        'name' => $name,
+                        'nim' => $nim,
+                        'role' => 2,
+                        'presence' => 1,
+                    ]);
+                    return redirect()->route('attendanceList');
                 }
-            } else {
-                return redirect()->back()->withErrors(['email' => 'Email has already been used to vote.']);
             }
+        } else {
+            return redirect()->back()->withErrors(['nim' => 'NIM has already been used to vote.']);
         }
 
         return redirect()->route('attendanceList');

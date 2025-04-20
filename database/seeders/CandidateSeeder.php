@@ -14,15 +14,15 @@ class CandidateSeeder extends Seeder
     public function run(): void
     {
         Candidate::create([
-            'names' => 'Ida Bagus Radhita & Nathan',
+            'names' => 'Odilia Keisha & Bryan Jonathan',
             'number_of_votes' => 0,
-            'photo' => '/images/Candidates 1 Compressed.png'
+            'photo' => '/images/Candidate 1.png'
         ]);   
 
         Candidate::create([
-            'names' => 'Michael David Sin & Richie',
+            'names' => 'Calista Wijaya & Yosua Pirono',
             'number_of_votes' => 0,
-            'photo' => '/images/Candidates 2 Compressed.png'
+            'photo' => '/images/Candidate 2.png'
         ]);   
     }
 }

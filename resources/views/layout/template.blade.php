@@ -86,7 +86,7 @@
         .exceed-image-4 {
             position: relative;
             margin-top: -150px;
-            width: 485px;
+            width: 450px;
         }
 
         .ontop-image {
@@ -152,7 +152,7 @@
             height: 95px;
             width: 200px;
             margin-left: -80px;
-            margin-top: 80px;
+            margin-top: 50px;
             background-color: transparent;
             position: relative;
             z-index: 0;
@@ -162,7 +162,7 @@
             height: 95px;
             width: 200px;
             margin-left: 100px;
-            margin-top: 30px;
+            margin-top: 25px;
             background-color: transparent;
             position: relative;
             z-index: 0;

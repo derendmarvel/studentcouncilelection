@@ -18,7 +18,7 @@
                         <table class="table-bordered border-white text-white fs-5 w-100">
                             <thead>
                                 <tr>
-                                    <th scope="col p-2">Email</th>
+                                    <th scope="col p-2">Name</th>
                                     <th scope="col p-2">NIM</th>
                                     <th scope="col p-2">Presence</th>
                                     <th scope="col p-2">Checklist</th>
@@ -27,7 +27,7 @@
                             <tbody>
                                 @foreach ($voters as $key => $voter)
                                     <tr>
-                                        <td class = "p-2">{{ $voter['email'] }}</td>
+                                        <td class = "p-2">{{ $voter['name'] }}</td>
                                         <td class = "p-2">{{ $voter['nim'] }}</td>
                                         <td class = "p-2">{{ $voter['presence'] == 1 ? 'Yes' : 'No' }}</td>
                                         <td class="p-2">
