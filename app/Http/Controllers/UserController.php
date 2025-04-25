@@ -26,17 +26,17 @@ class UserController extends Controller
             $existingEmail = User::where('email', $validatedData['email'])->first();
             $existingNIM = User::where('nim', $validatedData['nim'])->first();
 
-            if(!$existingNIM){
+            if(!$existingNIM && !$existingEmail){
                 return redirect()->back()->withErrors(['email' => 'Please confirm attendance at the front desk first.']);
-            // } else if (!$existingEmail && $existingNIM){
-            //     return redirect()->back()->withErrors(['email' => 'Incorrect email.']);
-            // } else if (!$existingNIM && $existingEmail){
-            //     return redirect()->back()->withErrors(['nim' => 'Incorrect nim.']);
+            } else if (!$existingEmail && $existingNIM){
+                 return redirect()->back()->withErrors(['email' => 'Incorrect email.']);
+            } else if (!$existingNIM && $existingEmail){
+                 return redirect()->back()->withErrors(['nim' => 'Incorrect nim.']);
             } else {
                 $user = User::where('nim', $validatedData['nim'])->first();
                 if($user){
                     $import = new NimEmailImport();
-                    $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
+                    $filePath = public_path('images/Student List 2025_04_24 1810.xlsx');
                     $data = Excel::toArray($import, $filePath)[0];
 
                     foreach ($data as $row) {
@@ -109,7 +109,7 @@ class UserController extends Controller
 
         if(!$existingNIM){
             $import = new NimEmailImport();
-            $filePath = public_path('images/Data Mahasiswa PEMILU 2024.xlsx');
+            $filePath = public_path('images/Student List 2025_04_24 1810.xlsx');
             $data = Excel::toArray($import, $filePath)[0];
             foreach ($data as $row) {
                 if ($row['nis'] == $nim) {
